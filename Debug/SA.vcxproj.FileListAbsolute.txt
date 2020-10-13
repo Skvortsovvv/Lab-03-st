@@ -1,0 +1,2 @@
+C:\Users\user-pc\source\repos\SA\Debug\SA.exe
+C:\Users\user-pc\source\repos\SA\Debug\SA.pdb

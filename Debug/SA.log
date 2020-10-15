@@ -4,10 +4,10 @@ C:\Users\user-pc\source\repos\SA\Header.h(31,65): warning C4244: 'argument': con
           [
               _Rep=__int64
           ]
-C:\Users\user-pc\source\repos\SA\Header.h(57,76): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
+C:\Users\user-pc\source\repos\SA\Header.h(59,76): warning C4244: 'argument': conversion from '_Rep' to 'unsigned int', possible loss of data
           with
           [
               _Rep=__int64
           ]
-C:\Users\user-pc\source\repos\SA\Header.h(68,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\user-pc\source\repos\SA\Header.h(70,9): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
   SA.vcxproj -> C:\Users\user-pc\source\repos\SA\Debug\SA.exe

@@ -34,13 +34,14 @@ int GetRandomFromRange(int min, int max)
 
 double average_distance(const std::vector<int>& permutation) {
 	double distance_sum = 0;
-
 	for (int i = 0; i < 1000; i++)
 		distance_sum += abs(permutation[i] - i);
 
 	return distance_sum / 1000;
 }
 
+
+// Make a number from int and double parts
 double NumberConstructor(int a, int b, int number) {
 	double result = number;
 	while (result >= 1) {
@@ -53,6 +54,7 @@ double NumberConstructor(int a, int b, int number) {
 	return temp + result;
 }
 
+// generator of double part
 double RandomNumberGenerator(int a, int b) {
 	std::mt19937 rng(std::chrono::steady_clock::now().time_since_epoch().count());
 	std::vector<int> permutation(1000);
@@ -92,15 +94,15 @@ bool RateDifference(double diff) {
 
 
 void SA(double function(double x), int a, int b , double Tmax , double Tmin) {
-	//double xmin = 0;
 	int attempt = 1;
 	double xmin = RandomNumberGenerator(a, b);
 	double Tcurrent = Tmax;
-	std::cout<<std::left << 'N' << ' ' << std::setw(7) << "Temper" << ' ' << std::setw(7) << 'x' << ' '
-		<< std::setw(7) << "f(x)" << std::endl;
+	std::cout<<std::left << 'N' << ' ' << std::setw(10) << "Temper" << ' ' << std::setw(10) << 'x' << ' '
+		<< std::setw(10) << "f(x)" << std::endl;
 	while (Tcurrent > Tmin) {
+		std::cout << std::left << attempt++ << ' ' << std::setw(7) << Tcurrent << ' ' << std::setw(7) << xmin << ' ' << std::setw(7) << function(xmin) << std::endl;
 		double x2 = RandomNumberGenerator(a, b);
-		double difference = function(x2) - function(xmin);
+		double difference = CalcDifference(function, x2,xmin);
 		if (RateDifference(difference)) {
 			xmin = x2;
 		}
@@ -110,6 +112,5 @@ void SA(double function(double x), int a, int b , double Tmax , double Tmin) {
 			}
 		}
 		Tcurrent = CoolingTemperature(Tcurrent);
-		std::cout<<std::left << attempt++ << ' '<< std::setw(7) << Tcurrent << ' ' << std::setw(7)<<xmin << ' ' << std::setw(7) <<function(xmin) << std::endl;
 	}
 }
